@@ -1,0 +1,11 @@
+name: Install pwsh
+description: Installs pwsh
+runs:
+  using: composite
+  steps:
+    - name: Install pwsh
+      shell: bash
+      run: |
+        wget -O- https://github.com/PowerShell/PowerShell/releases/download/v7.3.2/powershell_7.3.2-1.deb_amd64.deb > pwsh.deb_amd64.deb
+        sudo dpkg -i pwsh.deb_amd64.deb
+        sudo apt-get install --yes -f
