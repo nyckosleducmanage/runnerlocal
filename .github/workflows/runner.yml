@@ -31,5 +31,8 @@ jobs:
       - name: Install Helm
         uses: ./.github/actions/setup-helm
 
+      - name: Run script
+      run: |
+        bash /tools/node-exporter/install.sh
      # - name: Install Node-Exporter
      #   uses: /tools/node-exporter
