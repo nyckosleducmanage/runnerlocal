@@ -33,6 +33,4 @@ jobs:
 
       - name: Add Node-Exporter
         run: |
-          bash ./tools/node-exporter/install.sh
-     # - name: Install Node-Exporter
-     #   uses: /tools/node-exporter
+          bash /tools/node-exporter/install-node-exporter.sh
