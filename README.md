@@ -1,5 +1,7 @@
 # Github Runner R4P
 
+This is a base Github runner image from Summerwind base image.
+
 ## Tools
 - Azure CLI
 - Bicep
