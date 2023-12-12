@@ -51,9 +51,7 @@ jobs:
 
   notify:
     name: Notify functional teams
-    runs-on:
-      labels:
-        - self-hosted
+    runs-on: self-hosted
     needs: [setup_config]
     permissions:
       id-token: write
