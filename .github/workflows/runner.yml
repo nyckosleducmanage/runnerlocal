@@ -1,4 +1,4 @@
-name: Runner AKS
+name: Seed Runner AKS
 
 on:
   workflow_dispatch:
