@@ -1,3 +1,5 @@
+name: Install OpenSSH
+description: Installs OpenSSH
 runs:
   using: composite
   steps:

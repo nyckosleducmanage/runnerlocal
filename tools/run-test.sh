@@ -8,8 +8,10 @@ declare -A tool_map=(
     ["git"]="git --version"
     ["jq"]="jq --version"
     ["az"]="az --version"
+    ["python"]="python --version"
     ["kubectl"]="kubectl version --client"
     ["helm"]="helm version --client"
+
 )
 
 failure=0

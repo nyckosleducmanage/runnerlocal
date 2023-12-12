@@ -1,7 +1,9 @@
+name: Install Helm
+description: Installs Helm
 runs:
   using: composite
   steps:
-      - name: Install Kubectl
+      - name: Install Helm
         shell: bash
         run: |
           sudo apt-get install --yes tar

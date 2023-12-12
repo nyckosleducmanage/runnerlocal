@@ -1,7 +1,9 @@
+name: Install Azure CLI
+description: Installs Azure CLI
 runs:
   using: composite
   steps:
-      - name: Install Azure cli
+      - name: Install Azure CLI
         shell: bash
         run: |
           sudo apt-get install --yes ca-certificates curl apt-transport-https lsb-release gnupg

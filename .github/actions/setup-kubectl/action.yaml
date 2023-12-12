@@ -1,3 +1,5 @@
+name: Install Kubectl
+description: Installs Kubectl
 runs:
   using: composite
   steps:
