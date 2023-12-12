@@ -1,0 +1,8 @@
+runs:
+  using: composite
+  steps:
+      - name: Install OpenSSH
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes openssh-client
