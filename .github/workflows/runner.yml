@@ -51,7 +51,7 @@ jobs:
           useCredentialsFromKeyVault: false
 
   notify:
-    name: Notify functional teams
+    name: Azure IODC Login
     runs-on:
       labels:
         - self-hosted
