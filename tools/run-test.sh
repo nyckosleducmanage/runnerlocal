@@ -3,17 +3,13 @@
 echo "Running tests for $(basename $(pwd)) ..."
 
 declare -A tool_map=(
-#    ["terraform"]="terraform -version"
-#    ["terragrunt"]="terragrunt -version"
-#    ["go"]="go version"
     ["docker"]="docker --version"
-#    ["python"]="python --version"
     ["pip"]="pip --version"
     ["git"]="git --version"
     ["jq"]="jq --version"
     ["az"]="az --version"
-    ["kubectl"]="kubectl version"
-#    ["js-yaml"]="node -e 'require(\"js-yaml\")'"
+    ["kubectl"]="kubectl version --client"
+    ["helm"]="helm version --client"
 )
 
 failure=0
