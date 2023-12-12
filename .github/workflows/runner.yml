@@ -9,7 +9,7 @@ on:
   #  branches: [ "main" ]
 
 jobs:
-  backup_config:
+  setup_config:
     name: 'Runner AKS'
     runs-on: self-hosted
     steps:
@@ -49,3 +49,24 @@ jobs:
           tenantId: ${{ vars.TENANT_ID }}
           subscriptionId: ${{ vars.SUBSCRIPTION_ID }}
           useCredentialsFromKeyVault: false
+
+  notify:
+    name: Notify functional teams
+    runs-on:
+      labels:
+        - self-hosted
+        - teamtest-management
+    needs: [setup_config]
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout jdf-infra
+        uses: actions/checkout@v3
+      
+      - name: Az Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ vars.CLIENT_ID }}
+          tenant-id: ${{ vars.TENANT_ID }}
+          subscription-id: ${{ vars.SUBSCRIPTION_ID }}
