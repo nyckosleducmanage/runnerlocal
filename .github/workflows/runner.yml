@@ -31,11 +31,11 @@ jobs:
       - name: Install Helm
         uses: ./.github/actions/setup-helm
 
-      - name: Install OpenSSH Client
-        run: |
-          bash ./tools/openssh-client/install-openssh-client.sh
-
 # Non fonctionnel sur image github-runner
 #      - name: Install Node-Exporter
 #        run: |
-#          bash ./tools/node-exporter/install-node-exporter.sh           
+#          bash ./tools/node-exporter/install-node-exporter.sh
+
+#     - name: Install OpenSSH Client
+#        run: |
+#          bash ./tools/openssh-client/install-openssh-client.sh
