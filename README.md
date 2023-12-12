@@ -2,7 +2,7 @@
 
 This is a base Github runner image from Summerwind base image.
 
-## Tools
+## Tools added
 - Azure CLI
 - Bicep
 - Helm
