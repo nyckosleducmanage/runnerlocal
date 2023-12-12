@@ -50,7 +50,7 @@ jobs:
           subscriptionId: ${{ vars.SUBSCRIPTION_ID }}
           useCredentialsFromKeyVault: false
 
-  notify:
+  iodc:
     name: Azure IODC Login
     runs-on:
       labels:
