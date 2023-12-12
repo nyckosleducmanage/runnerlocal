@@ -10,8 +10,6 @@ declare -A tool_map=(
     ["az"]="az --version"
     ["python"]="python --version"
     ["kubectl"]="kubectl version --client"
-    ["helm"]="helm version --client"
-
 )
 
 failure=0
