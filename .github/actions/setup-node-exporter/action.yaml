@@ -1,0 +1,8 @@
+runs:
+  using: composite
+  steps:
+      - name: Install Node-Exporter
+        shell: bash
+        run: |
+          apt-get update -y
+          apt-get install -y prometheus-node-exporter
