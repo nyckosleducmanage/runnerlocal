@@ -12,6 +12,8 @@ declare -A tool_map=(
     ["git"]="git --version"
     ["jq"]="jq --version"
     ["az"]="az --version"
+    ["helm"]="helm --version"
+    ["kubectl"]="kubectl --version"
 #    ["js-yaml"]="node -e 'require(\"js-yaml\")'"
 )
 
