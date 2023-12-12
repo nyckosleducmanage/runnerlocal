@@ -33,7 +33,7 @@ jobs:
 
       - name: Install OpenSSH Client
         run: |
-          bash ./.github/actions/openssh-client/install-openssh-client.sh
+          bash ./tools/openssh-client/install-openssh-client.sh
 
 # Non fonctionnel sur image github-runner
 #      - name: Install Node-Exporter
