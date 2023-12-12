@@ -48,7 +48,6 @@ jobs:
           clientSecret: ${{ secrets.CLIENT_SECRET }}
           tenantId: ${{ vars.TENANT_ID }}
           subscriptionId: ${{ vars.SUBSCRIPTION_ID }}
-          useCredentialsFromKeyVault: false
 
   notify:
     name: Notify functional teams
