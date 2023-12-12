@@ -1,0 +1,28 @@
+inputs:
+  clientId:
+    required: false
+    description: The customer id
+  clientSecret:
+    required: false
+    description: The customer secret
+  tenantId:
+    required: false
+    description: The customer tenant id
+  subscriptionId:
+    required: true
+    description: The customer subscription id
+
+runs:
+  using: composite
+  steps:
+
+    - name: Azure Login using SP secret
+      uses: azure/login@v1
+      with:
+        creds: >-
+          {
+            "clientId": "${{ fromJSON(inputs.useCredentialsFromKeyVault) && steps.getCustomerIdentity.outputs.clientId || inputs.clientId }}",
+            "clientSecret":"${{ fromJSON(inputs.useCredentialsFromKeyVault) && steps.getCustomerIdentity.outputs.clientSecret || inputs.clientSecret }}",
+            "subscriptionId":"${{ inputs.subscriptionId }}",
+            "tenantId":"${{ fromJSON(inputs.useCredentialsFromKeyVault) && steps.getCustomerIdentity.outputs.tenantId || inputs.tenantId }}"
+          }
