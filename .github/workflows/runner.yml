@@ -36,3 +36,7 @@ jobs:
 
       - name: Install Node-Exporter
         uses: ./.github/actions/setup-node-exporter
+
+      - name: Run Tests
+        run : |
+          bash ./tools/run-test.sh
