@@ -76,6 +76,7 @@ jobs:
       labels:
         - self-hosted
         - SynologyTest
+    needs: [iodc]
     steps:
       - uses: actions/checkout@v2
       - uses: bacongobbler/azure-blob-storage-upload@main
