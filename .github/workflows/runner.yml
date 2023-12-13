@@ -71,19 +71,19 @@ jobs:
           tenant-id: ${{ vars.TENANT_ID }}
           subscription-id: ${{ vars.SUBSCRIPTION_ID }}
 
-  upload:
-    runs-on:
-      labels:
-        - self-hosted
-        - SynologyTest
-    needs: [iodc]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: bacongobbler/azure-blob-storage-upload@main
-        with:
-          source_dir: /home
-          container_name: toto
-          connection_string: ${{ secrets.KV_CONNECTION_STRING }}
-          extra_args: '--pattern *.tar.gz'
+#  upload:
+#    runs-on:
+#      labels:
+#        - self-hosted
+#        - SynologyTest
+#    needs: [iodc]
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: bacongobbler/azure-blob-storage-upload@main
+#        with:
+#          source_dir: /home
+#          container_name: toto
+#          connection_string: ${{ secrets.KV_CONNECTION_STRING }}
+#          extra_args: '--pattern *.tar.gz'
           # WARNING: this will overwrite existing blobs in blob storage
-          overwrite: 'true'
+#          overwrite: 'true'
