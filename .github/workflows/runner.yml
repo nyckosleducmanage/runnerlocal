@@ -81,7 +81,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: bacongobbler/azure-blob-storage-upload@main
         with:
-          source_dir: _dist
+          source_dir: /home
           container_name: toto
           connection_string: ${{ secrets.KV_CONNECTION_STRING }}
           extra_args: '--pattern *.tar.gz'
