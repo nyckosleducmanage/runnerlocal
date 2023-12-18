@@ -1,0 +1,74 @@
+mqtt:
+  enabled: false
+cameras:
+  garage:
+    ffmpeg:
+      inputs:
+        - path: rtsp://nrtsp.nicolasleduc.com:554/garage
+          roles:
+            - detect
+            - rtmp
+            - record
+    objects:
+      track:
+        - person
+        - dog
+        - bicycle
+        - car
+        - motorcycle
+    detect:
+      width: 2304
+      height: 1296
+    record:
+      enabled: True
+      retain:
+        days: 30
+        mode: all
+  salon:
+    ffmpeg:
+      input_args:
+        - -rtsp_transport
+        - udp
+        - -fflags
+        - nobuffer
+        - -flags
+        - low_delay
+        - -strict
+        - experimental
+        - -fflags
+        - +genpts+discardcorrupt
+        - -use_wallclock_as_timestamps
+        - 1
+      inputs:
+        - path: rtsp://nrtsp.nicolasleduc.com:554/salon
+          roles:
+            - detect
+            - rtmp
+            - record
+    objects:
+      track:
+        - person
+        - dog
+    record:
+      enabled: True
+      retain:
+        days: 30
+        mode: all
+detectors:
+    cpu1:
+      type: cpu
+      num_threads: 3
+
+
+
+go2rtc:
+  streams:
+    Jardin:
+      - rtsps://192.168.95.234:7441/hp8DtTGmUq82s0wc
+    Piscine:
+      - rtsps://192.168.95.234:7441/U5Nfa2O8ZJJx2dFi
+
+ffmpeg:
+  output_args:
+    record: preset-record-ubiquiti
+    rtmp: preset-rtmp-ubiquiti # recommend using go2rtc instead

@@ -1,0 +1,11 @@
+name: Install Helm
+description: Installs Helm
+runs:
+  using: composite
+  steps:
+      - name: Install Helm
+        shell: bash
+        run: |
+          python3 -m pip install --user ansible
+
+

@@ -37,6 +37,9 @@ jobs:
       - name: Install Node-Exporter
         uses: ./.github/actions/setup-node-exporter
 
+      - name: Install Ansible
+        uses: ./.github/actions/setup-ansible
+
       - name: Run Tests
         run : |
           bash ./tools/run-test.sh
