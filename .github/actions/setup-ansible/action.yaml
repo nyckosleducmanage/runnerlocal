@@ -4,9 +4,9 @@ runs:
   using: composite
   steps:
       - name: Install Helm
-        shell: bash
+        shell: bash # ansible et argcomplete
         run: |
-          sudo python3 -m pip install --user ansible
-          sudo python3 -m pip install --user argcomplete
+          sudo python3 -m pip install --user root 
+          sudo python3 -m pip install --user root
 
 
