@@ -5,7 +5,7 @@
 # The following distros are supported: 
 #   - Fedora 20 and greater
 #   - CentOS 7
-#   - Ubuntu 16.04, 17.10, 18.04
+#   - Ubuntu 16.04, 17.10, 18.04, 20.04
 # ------------------------------------------------------------------------
 
 # ----------------
@@ -71,7 +71,7 @@ fi
 ## Deal with Ubuntu
 if [ "$ID" == "ubuntu" ]; then
   case "$VERSION_ID" in
-    16.04|17.10|20.04)
+    16.04|17.10|18.04|20.04)
       echo "Adding PPA, then installing Ansible"
       sudo apt-add-repository ppa:ansible/ansible -y
       sudo apt-get update
