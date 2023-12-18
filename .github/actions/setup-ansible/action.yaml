@@ -6,7 +6,7 @@ runs:
       - name: Install Helm
         shell: bash # ansible et argcomplete -- sudo python3 -m pip install --user ansible 
         run: |
-          sudo apt install --yes python-virtualenv sshpass
+          sudo apt get install --yes python-virtualenv sshpass
           sudo adduser ansible
           su ansible
           virtualenv ansible
