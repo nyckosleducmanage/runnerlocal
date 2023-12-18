@@ -71,7 +71,7 @@ fi
 ## Deal with Ubuntu
 if [ "$ID" == "ubuntu" ]; then
   case "$VERSION_ID" in
-    16.04|17.10)
+    16.04|17.10|20.04)
       echo "Adding PPA, then installing Ansible"
       sudo apt-add-repository ppa:ansible/ansible -y
       sudo apt-get update
