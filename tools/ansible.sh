@@ -71,13 +71,13 @@ fi
 ## Deal with Ubuntu
 if [ "$ID" == "ubuntu" ]; then
   case "$VERSION_ID" in
-    16.04|17.10|18.04|20.04)
+    16.04|17.10)
       echo "Adding PPA, then installing Ansible"
       sudo apt-add-repository ppa:ansible/ansible -y
       sudo apt-get update
       sudo apt-get install software-properties-common ansible python-apt -y
       ;;
-    18.04)
+    18.04|20.04)
       echo "Importing Ansible signing keys"
       sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
       echo "Adding Ansible PPA, then installing Ansible"
