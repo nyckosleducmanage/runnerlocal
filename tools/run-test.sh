@@ -9,6 +9,7 @@ declare -A tool_map=(
     ["jq"]="jq --version"
     ["az"]="az --version"
     ["kubectl"]="kubectl version --client"
+    ["ansible"]="ansible --version"
 )
 
 failure=0
