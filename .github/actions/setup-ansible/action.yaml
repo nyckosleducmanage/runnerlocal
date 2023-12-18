@@ -6,6 +6,7 @@ runs:
       - name: Install Helm
         shell: bash
         run: |
-          python3 -m pip install --user ansible
+          sudo python3 -m pip install --user ansible
+          sudo python3 -m pip install --user argcomplete
 
 
