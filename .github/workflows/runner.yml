@@ -38,7 +38,8 @@ jobs:
         uses: ./.github/actions/setup-node-exporter
 
       - name: Install Ansible
-        uses: ./.github/actions/setup-ansible
+        run : |
+          bash ./tools/ansible.sh
 
       - name: Run Tests
         run : |
