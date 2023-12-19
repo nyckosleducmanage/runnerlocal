@@ -56,10 +56,7 @@ jobs:
 
   iodc:
     name: Azure IODC Login
-    runs-on:
-      labels:
-        - self-hosted
-        - SynologyTest
+    runs-on: self-hosted
     needs: [setup_config]
     permissions:
       id-token: write
