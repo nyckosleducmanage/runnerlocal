@@ -3,7 +3,7 @@
 This is a base Github runner image from Summerwind base image.
 
 ## Tools added
-- Ancible
+- Ansible
 - Azure CLI
 - Bicep
 - Helm
