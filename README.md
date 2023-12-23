@@ -12,3 +12,5 @@ This is a base Github runner image from Summerwind base image.
 - OpenSSH Client
 - PowerShell
 - Python
+
+By Nicolas Leduc
