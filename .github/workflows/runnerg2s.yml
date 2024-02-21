@@ -1,4 +1,4 @@
-name: Seed Runner AKS
+name: Seed Runner AKS G2S
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   setup_config:
-    name: 'Runner AKS'
+    name: 'Runner AKS G2S'
     runs-on: self-hosted
     steps:
       - name: Checkout repository
