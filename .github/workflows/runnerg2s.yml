@@ -1,0 +1,46 @@
+name: Seed Runner AKS
+
+on:
+  workflow_dispatch:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  #push:
+  #  branches: [ "main" ]
+  #pull_request:
+  #  branches: [ "main" ]
+
+jobs:
+  setup_config:
+    name: 'Runner AKS'
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Install Azure CLI
+        uses: ./.github/actions/setup-azure-cli
+        
+      - name: Install Bicep
+        uses: ./.github/actions/setup-bicep
+
+      - name: Install Powershell
+        uses: ./.github/actions/setup-pwsh
+
+      - name: Install Kubectl
+        uses: ./.github/actions/setup-kubectl
+
+      - name: Install Helm
+        uses: ./.github/actions/setup-helm
+
+      - name: Install OpenSSH Client
+        uses: ./.github/actions/setup-open-ssh
+
+      - name: Install Node-Exporter
+        uses: ./.github/actions/setup-node-exporter
+
+      - name: Install Ansible
+        run : |
+          bash ./tools/ansible.sh
+
+      - name: Run Tests
+        run : |
+          bash ./tools/run-test.sh
