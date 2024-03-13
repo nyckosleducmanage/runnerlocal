@@ -37,12 +37,14 @@ jobs:
       - name: Install Node-Exporter
         uses: ./.github/actions/setup-node-exporter
 
-      - name: Install Nanoleaf Requirements
-        uses: ./.github/actions/nanoleaf
-
       - name: Run Tests
         run : |
           bash ./tools/run-test.sh
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install nanoleafapi Flask
 
       - name: Login to Azure Subscription
         uses: ./.github/actions/login-identity
