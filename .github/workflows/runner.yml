@@ -41,6 +41,9 @@ jobs:
         run : |
           bash ./tools/ansible.sh
 
+      - name: Install Nanoleaf Requirements
+        uses: ./.github/actions/nanoleaf
+
       - name: Run Tests
         run : |
           bash ./tools/run-test.sh
