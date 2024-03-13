@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from nanoleafapi import discovery, Nanoleaf
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='./tools')
 
 # Fonction pour obtenir l'adresse IP du Nanoleaf
 def get_nanoleaf_ip():
