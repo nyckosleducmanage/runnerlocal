@@ -37,10 +37,6 @@ jobs:
       - name: Install Node-Exporter
         uses: ./.github/actions/setup-node-exporter
 
-      - name: Install Ansible
-        run : |
-          bash ./tools/ansible.sh
-
       - name: Install Nanoleaf Requirements
         uses: ./.github/actions/nanoleaf
 
