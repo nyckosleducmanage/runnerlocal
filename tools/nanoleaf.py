@@ -15,6 +15,9 @@ def get_nanoleaf_ip():
 @app.route('/')
 def index():
     return render_template('index.html')
+    
+if __name__ == '__main__':
+    app.run(debug=True, port=4880)
 
 # Route pour le contrôle du Nanoleaf
 @app.route('/control', methods=['POST'])
