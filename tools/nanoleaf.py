@@ -10,14 +10,21 @@ def get_nanoleaf_ip():
         return list(nanoleaf_dict.values())[0]
     else:
         return None
-
-# Route pour la page d'accueil
-@app.route('/')
-def index():
-    return render_template('index.html')
     
 if __name__ == '__main__':
     app.run(debug=True, port=4880)
+
+# Route pour allumer le Nanoleaf
+@app.route('/turn_on', methods=['POST'])
+def turn_on_nanoleaf():
+    ip = get_nanoleaf_ip()
+    if ip:
+        nl = Nanoleaf(ip)
+        nl.turn_on()
+        return 'Nanoleaf allumé.'
+    else:
+        return 'Nanoleaf non trouvé.'
+
 
 # Route pour le contrôle du Nanoleaf
 @app.route('/control', methods=['POST'])
