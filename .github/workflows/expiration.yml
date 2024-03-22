@@ -28,4 +28,4 @@ jobs:
       - name: List Service Principals
         run: |
           #az ad sp list --all --query "[].{Name: displayName, Expiration: passwordCredentials[].endDate}" --output table
-          az ad sp list --all --output table
+          az ad app list --all
