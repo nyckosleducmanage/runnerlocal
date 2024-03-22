@@ -27,4 +27,14 @@ jobs:
   
       - name: List Service Principals
         run: |
-          az ad sp list --query "[].{Name: displayName, Expiration: passwordCredentials[].endDate}" --output table
+          #az ad sp list --query "[].{Name: displayName, Expiration: passwordCredentials[].endDate}" --output table
+          sp_list=$(echo "${{ steps.list-sp.outputs.sp_list }}" | jq -r '.[] | @base64')
+          for sp in $sp_list; do
+          _jq() {
+            echo ${sp} | base64 --decode | jq -r ${1}
+          }
+          sp_object_id=$(_jq '.ObjectId')
+          sp_name=$(_jq '.Name')
+          echo "Secrets for Service Principal: $sp_name (Object ID: $sp_object_id)"
+          az ad sp credential list --id $sp_object_id --query "[].{Secret: startDate}" --output table
+          done
