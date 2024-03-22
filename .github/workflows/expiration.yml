@@ -1,0 +1,28 @@
+name: Azure Service Principal Expiration Check
+
+on:
+  workflow_dispatch:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  #push:
+  #  branches: [ "main" ]
+  #pull_request:
+  #  branches: [ "main" ]
+
+jobs:
+  check-expiration:
+    name: 'SP Expiration Check'
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Az Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ vars.CLIENT_ID }}
+          tenant-id: ${{ vars.TENANT_ID }}
+          subscription-id: ${{ vars.SUBSCRIPTION_ID }}
+  
+      - name: List Service Principals
+        run: |
+          az ad sp list --query "[].{Name: displayName, Expiration: passwordCredentials[].endDate}" --output table
