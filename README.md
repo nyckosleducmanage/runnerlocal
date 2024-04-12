@@ -20,7 +20,7 @@ By Nicolas Leduc
 
 [![Deploy Secrets Key Vault][img_secrets_keyvault]][wkf_secrets_keyvault]
 
-This [`workflow`](.github/workflows/deploy-secrets-keyvault.yml) deploys IaC in [`secrets-infra`](secrets-infra) folder for the key vault that will contain secrets synchronized from Application CyberArk.  These secrets are used in workflows.
+This [`workflow`](.github/workflows/deploy-secret-keyvault.yml) deploys IaC in [`secrets-infra`](secrets-infra) folder for the key vault that will contain secrets synchronized from Application CyberArk.  These secrets are used in workflows.
 
 The workflow takes no parameters and runs on standard `ubuntu-latest`-labeled runner.
 
@@ -38,4 +38,4 @@ Target subscription and Azure identity for deployment are as usual taken from Gi
 - `SUBSCRIPTION_ID`
 - `TENANT_ID`
 
-[wkf_secrets_keyvault]: https://github.com/nyckosleducmanage/runnerlocal/actions/workflows/deploy-secrets-keyvault.yml
+[wkf_secrets_keyvault]: https://github.com/nyckosleducmanage/runnerlocal/actions/workflows/deploy-secret-keyvault.yml
