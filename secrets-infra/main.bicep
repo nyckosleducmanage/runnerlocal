@@ -3,9 +3,9 @@ param location string
 param devopsGroupObjectId string
 param keyvaultServicePrincipalObjectId string
 param privateEndpointSubnetId string
-param tagAmaOwner string
-param tagMccpVersion string
-param tagAmaEnvironment string
+param tagG2SOwner string
+param tagG2SVersion string
+param tagG2SEnvironment string
 
 var commonResourceBaseTags = {
   g2s_service: 'G2S'
