@@ -9,7 +9,7 @@ param tagG2SEnvironment string
 
 var commonResourceBaseTags = {
   g2s_service: 'G2S'
-  'g2s_service-id': 'a9005160-f2dc-11ec-8ec0-0050560c4716'
+  'g2s_service-id': '4bb74e51-e33b-40b3-9148-b4f6a2ee2e15'
   g2s_owner: tagG2SOwner
   'G2S_first-line-support': 'g2s-devops'
   g2s_environment: tagG2SEnvironment
