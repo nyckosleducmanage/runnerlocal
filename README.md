@@ -38,4 +38,5 @@ Target subscription and Azure identity for deployment are as usual taken from Gi
 - `SUBSCRIPTION_ID`
 - `TENANT_ID`
 
+[img_secrets_keyvault]: https://github.com/nyckosleducmanage/runnerlocal/actions/workflows/deploy-secret-keyvault.yml/badge.svg
 [wkf_secrets_keyvault]: https://github.com/nyckosleducmanage/runnerlocal/actions/workflows/deploy-secret-keyvault.yml
