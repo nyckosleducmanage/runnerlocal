@@ -20,7 +20,7 @@ By Nicolas Leduc
 
 [![Deploy Secrets Key Vault][img_secrets_keyvault]][wkf_secrets_keyvault]
 
-This [`workflow`](.github/workflows/deploy-secret-keyvault.yml) deploys IaC in [`secrets-infra`](secrets-infra) folder for the key vault that will contain secrets synchronized from Application CyberArk.  These secrets are used in workflows.
+This [`workflow`](.github/workflows/deploy-secret-keyvault.yml) deploy in [`secrets-infra`](secrets-infra) folder for the key vault that will contain secrets.  These secrets are used in workflows for later.
 
 The workflow takes no parameters and runs on standard `ubuntu-latest`-labeled runner.
 
