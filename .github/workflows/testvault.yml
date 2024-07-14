@@ -1,0 +1,42 @@
+name: Get secrets from Key Vault
+
+run-name: Get secrets from CCP Key Vault ${{ github.ref_type }} ${{ github.ref_name }}
+
+concurrency:
+  group: mccp-management-checkov-image
+  cancel-in-progress: false
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Build & Push new Checkov Docker image
+    runs-on:
+      labels:
+        - self-hosted
+        - mccp-management
+    permissions:
+      contents: read # This is required for actions/checkout
+      id-token: write # This is required for requesting the JWT
+    environment: amacp-ccp-ne-jdfmgt-01
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Az Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ vars.CLIENT_ID }}
+          tenant-id: ${{ vars.TENANT_ID }}
+          subscription-id: ${{ vars.SUBSCRIPTION_ID }}
+
+      - name: Get secrets from CCP Key Vault
+        id: secrets
+        shell: bash 
+        run: |
+          artifactoryPassword=$(az keyvault secret show --vault-name ${{ vars.CCP_KEY_VAULT_NAME }} \
+          --name JDF-ARTIFACTORY-PASSWORD \
+          --query value \
+          --output tsv)
+          echo "::add-mask::$artifactoryPassword"
+          echo "JDF_ARTIFACTORY_PASSWORD=$artifactoryPassword" >> $GITHUB_OUTPUT
