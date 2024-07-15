@@ -9,9 +9,9 @@ param tagNLEEnvironment string
 
 var commonResourceBaseTags = {
   nle_service: 'NLE'
-  nle_service-id: '4bb74e51-e33b-40b3-9148-b4f6a2ee2e15'
+  'nle_service-id': '4bb74e51-e33b-40b3-9148-b4f6a2ee2e15'
   nle_owner: tagG2SOwner
-  nle_first-line-support: 'nle-devops'
+  'nle_first-line-support': 'nle-devops'
   nle_environment: tagNLEEnvironment
   managed_by: 'Nicolas Leduc'
   nle_component: 'foundation'
