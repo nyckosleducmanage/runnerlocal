@@ -3,7 +3,6 @@ param location string
 param devopsGroupObjectId string
 param keyvaultServicePrincipalObjectId string
 param privateEndpointSubnetId string
-param tagNLEVersion string
 param tagG2SOwner string
 param tagNLEEnvironment string
 
@@ -15,7 +14,6 @@ var commonResourceBaseTags = {
   nle_environment: tagNLEEnvironment
   managed_by: 'Nicolas Leduc'
   nle_component: 'foundation'
-  'nle_version': 'tagNLEVersion'
   nle_instance: 'mgmt'
   'nle_operational-owner': 'nle-devops'
 }
