@@ -3,22 +3,21 @@ param location string
 param devopsGroupObjectId string
 param keyvaultServicePrincipalObjectId string
 param privateEndpointSubnetId string
-param tagNLEOwner string
 param tagNLEVersion string
+param tagG2SOwner string
 param tagNLEEnvironment string
 
 var commonResourceBaseTags = {
   nle_service: 'NLE'
-  'nle_service-id': '4bb74e51-e33b-40b3-9148-b4f6a2ee2e15'
+  nle_service-id: '4bb74e51-e33b-40b3-9148-b4f6a2ee2e15'
   nle_owner: tagG2SOwner
-  'nle_first-line-support': 'nle-devops'
+  nle_first-line-support: 'nle-devops'
   nle_environment: tagNLEEnvironment
   managed_by: 'Nicolas Leduc'
   nle_component: 'foundation'
   nle_version: 'tagNLEVersion'
-  nle_owner: 'tagNLEOwner'
   nle_instance: 'mgmt'
-  'nle_operational-owner': 'nle-devops'
+  nle_operational-owner: 'nle-devops'
 }
 
 resource vault 'Microsoft.KeyVault/vaults@2023-02-01' = {
