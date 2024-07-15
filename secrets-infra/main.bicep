@@ -15,9 +15,9 @@ var commonResourceBaseTags = {
   nle_environment: tagNLEEnvironment
   managed_by: 'Nicolas Leduc'
   nle_component: 'foundation'
-  nle_version: 'tagNLEVersion'
+  'nle_version': 'tagNLEVersion'
   nle_instance: 'mgmt'
-  nle_operational-owner: 'nle-devops'
+  'nle_operational-owner': 'nle-devops'
 }
 
 resource vault 'Microsoft.KeyVault/vaults@2023-02-01' = {
