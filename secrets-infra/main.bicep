@@ -15,7 +15,8 @@ var commonResourceBaseTags = {
   nle_environment: tagNLEEnvironment
   managed_by: 'Nicolas Leduc'
   nle_component: 'foundation'
-  nle_version: tagNLEVersion
+  nle_version: 'tagNLEVersion'
+  nle_owner: 'tagNLEOwner'
   nle_instance: 'mgmt'
   'nle_operational-owner': 'nle-devops'
 }
