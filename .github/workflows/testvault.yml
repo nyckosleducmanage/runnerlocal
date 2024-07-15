@@ -39,3 +39,4 @@ jobs:
           --output tsv)
           echo "JDF_ARTIFACTORY_PASSWORD=$artifactoryPassword" >> $GITHUB_OUTPUT
           echo "$GITHUB_OUTPUT"
+          echo "$artifactoryPassword"
