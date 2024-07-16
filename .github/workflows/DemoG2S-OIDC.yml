@@ -1,6 +1,6 @@
 name: Get secrets from Key Vault
 
-run-name: Get secrets from CCP Key Vault ${{ github.ref_type }} ${{ github.ref_name }}
+run-name: Get secrets from CSP Key Vault ${{ github.ref_type }} ${{ github.ref_name }}
 
 concurrency:
   group: get-secret-key-vault
