@@ -1,4 +1,4 @@
-name: Get secrets from Key Vault
+name: Get secrets from Key Vault Demo
 
 run-name: Get secrets from CSP Key Vault ${{ github.ref_type }} ${{ github.ref_name }}
 
