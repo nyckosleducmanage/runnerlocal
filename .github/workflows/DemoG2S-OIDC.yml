@@ -15,8 +15,8 @@ jobs:
       labels:
         - self-hosted
     permissions:
-      contents: read # This is required for actions/checkout
-      id-token: write # This is required for requesting the JWT
+      contents: read # required for actions/checkout
+      id-token: write # required for requesting the JWT
     environment: g2s-dev-01
     steps:
       - name: Checkout
