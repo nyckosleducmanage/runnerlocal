@@ -2,8 +2,6 @@
 
 ## Benefits of using OIDC
 
-Bonnes pratiques de sécurité suivantes :
-
 ### Pas de secrets dans le cloud :
 Vous n'aurez pas besoin de dupliquer vos informations d'identification cloud en tant que secrets GitHub à long terme. Au lieu de cela, vous pouvez configurer la confiance OIDC sur votre fournisseur de cloud, puis mettre à jour vos flux de travail pour demander un jeton d'accès de courte durée à votre fournisseur de cloud via OIDC.
 
