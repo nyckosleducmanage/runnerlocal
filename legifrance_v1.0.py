@@ -105,7 +105,10 @@ def get_year_from_date(date_str):
     return 'Unknown'
 
 def process_decisions_from_file(input_filename):
-    with open(input_filename, 'r') as f:
+    # Utiliser le chemin absolu basé sur le répertoire courant
+    input_filepath = os.path.join(os.getcwd(), input_filename)
+
+    with open(input_filepath, 'r') as f:
         decisions = json.load(f)
     
     failed_decisions = []
@@ -117,7 +120,7 @@ def process_decisions_from_file(input_filename):
             
             if details:
                 year = get_year_from_date(details['date_audience'])
-                output_filename = f'/tmp/decisions_details_{year}.json'
+                output_filename = os.path.join(os.getcwd(), f'decisions_details_{year}.json')
                 save_decision_to_file(details, output_filename)
                 print(f"Details for {decision['title']} saved to {output_filename}.")
             else:
@@ -138,7 +141,7 @@ def process_decisions_from_file(input_filename):
                 
                 if details:
                     year = get_year_from_date(details['date_audience'])
-                    output_filename = f'/tmp/decisions_details_{year}.json'
+                    output_filename = os.path.join(os.getcwd(), f'decisions_details_{year}.json')
                     save_decision_to_file(details, output_filename)
                     print(f"Details for {decision['title']} (retry) saved to {output_filename}.")
                 
@@ -147,12 +150,12 @@ def process_decisions_from_file(input_filename):
                 print(f"Failed to retry details for {decision['title']}: {e}")
 
 def retry_failed_pages(year):
-    log_file_path = f'/tmp/failed_pages_{year}.log'
+    log_file_path = os.path.join(os.getcwd(), f'failed_pages_{year}.log')
     if not os.path.exists(log_file_path):
         print(f"No failed pages log found for year {year}.")
         return
     
-    with open(log_file_path, 'r') as log_file:
+    with open(log_file_path, 'r') as log_file):
         failed_urls = log_file.readlines()
 
     for url in failed_urls:
@@ -160,7 +163,7 @@ def retry_failed_pages(year):
         if url:
             details = scrape_with_retries(url, year)
             if details:
-                output_filename = f'/tmp/decisions_details_{year}.json'
+                output_filename = os.path.join(os.getcwd(), f'decisions_details_{year}.json')
                 save_decision_to_file(details, output_filename)
                 print(f"Details for URL {url} (retry) saved to {output_filename}.")
 
