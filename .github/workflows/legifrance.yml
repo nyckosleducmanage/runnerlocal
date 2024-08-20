@@ -1,4 +1,4 @@
-name: Run Python Script on Self-Hosted Runner
+name: LegiFrance Scrap
 
 on:
   push:
@@ -23,6 +23,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests beautifulsoup4
 
-    - name: Run the scraping script
+    - name: Run scraping
       run: |
         python legifrance_v1.0.py
