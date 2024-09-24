@@ -41,7 +41,7 @@ jobs:
 
     - name: Verify download
       run: |
-        ls -l ./downloaded_package
-        echo "File downloaded successfully: $(ls ./downloaded_package)"
+        ls -l /tmp
+        echo "File downloaded successfully: $(ls /tmp)"
 
     # Vous pouvez ajouter d'autres étapes ici pour utiliser le fichier téléchargé
