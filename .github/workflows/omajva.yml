@@ -25,7 +25,7 @@ jobs:
       run: |
         # Définir les variables
         FILE_SHARE_NAME="data"
-        FILE_PATH="i/docteller-lib-6.4.3.whl"
+        FILE_PATH="i/docteller-lib-.whl"
         DESTINATION_PATH="./downloaded_package"
 
         # Créer le répertoire de destination s'il n'existe pas
@@ -37,7 +37,7 @@ jobs:
           --account-key $AZURE_STORAGE_KEY \
           --share-name $FILE_SHARE_NAME \
           --path $FILE_PATH \
-          --dest "$DESTINATION_PATH/docteller-lib-6.4.3.whl"
+          --dest "$DESTINATION_PATH/docteller-lib-.whl"
 
     - name: Verify download
       run: |
