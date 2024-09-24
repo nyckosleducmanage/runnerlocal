@@ -18,23 +18,57 @@ jobs:
       run: |
         curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-    - name: Download file from Azure File Share
+    - name: Download file from Azure File Share and Debug
       env:
         AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
         AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
       run: |
         # Définir les variables
         FILE_SHARE_NAME="data"
-        FILE_PATH="i/docteller-lib-.whl"
-        DESTINATION_PATH="/tmp"
+        FILE_PATH="i/docteller-lib-*.whl"
+        DESTINATION_PATH="./downloaded_package"
 
-        # Créer le répertoire de destination s'il n'existe pas
+        # Afficher l'espace disque disponible
+        echo "Espace disque disponible:"
+        df -h
+
+        # Créer et vérifier le répertoire de destination
         mkdir -p $DESTINATION_PATH
+        echo "Contenu du répertoire de destination avant téléchargement:"
+        ls -la $DESTINATION_PATH
+
+        # Lister le contenu du File Share
+        echo "Contenu du File Share $FILE_SHARE_NAME/i:"
+        az storage file list --account-name $AZURE_STORAGE_ACCOUNT --account-key $AZURE_STORAGE_KEY --share-name $FILE_SHARE_NAME --path i --output table
 
         # Télécharger le fichier
+        echo "Tentative de téléchargement du fichier..."
         az storage file download \
           --account-name $AZURE_STORAGE_ACCOUNT \
           --account-key $AZURE_STORAGE_KEY \
           --share-name $FILE_SHARE_NAME \
           --path $FILE_PATH \
-          --dest "/tmp/docteller-lib-.whl"
+          --dest "$DESTINATION_PATH/" \
+          --recursive
+
+        # Vérifier le résultat du téléchargement
+        if [ $? -eq 0 ]; then
+          echo "Téléchargement réussi"
+        else
+          echo "Erreur lors du téléchargement"
+          exit 1
+        fi
+
+        # Vérifier le contenu après téléchargement
+        echo "Contenu du répertoire de destination après téléchargement:"
+        ls -la $DESTINATION_PATH
+
+        # Rechercher le fichier téléchargé
+        echo "Recherche du fichier téléchargé:"
+        find $DESTINATION_PATH -name "docteller-lib-*.whl"
+
+    - name: Verify download
+      run: |
+        echo "Vérification finale du téléchargement:"
+        ls -lR ./downloaded_package
+        find / -name "docteller-lib-*.whl" 2>/dev/null
