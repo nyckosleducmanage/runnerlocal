@@ -26,7 +26,7 @@ jobs:
         # Définir les variables
         FILE_SHARE_NAME="data"
         FILE_PATH="i/docteller-lib-.whl"
-        DESTINATION_PATH="./downloaded_package"
+        DESTINATION_PATH="/tmp"
 
         # Créer le répertoire de destination s'il n'existe pas
         mkdir -p $DESTINATION_PATH
