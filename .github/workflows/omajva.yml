@@ -37,11 +37,4 @@ jobs:
           --account-key $AZURE_STORAGE_KEY \
           --share-name $FILE_SHARE_NAME \
           --path $FILE_PATH \
-          --dest "$DESTINATION_PATH/docteller-lib-.whl"
-
-    - name: Verify download
-      run: |
-        ls -l /tmp
-        echo "File downloaded successfully: $(ls /tmp)"
-
-    # Vous pouvez ajouter d'autres étapes ici pour utiliser le fichier téléchargé
+          --dest "/tmp/docteller-lib-.whl"
