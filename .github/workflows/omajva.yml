@@ -1,0 +1,47 @@
+name: Download from Azure File Share
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  download-from-azure:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Azure CLI
+      run: |
+        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+    - name: Download file from Azure File Share
+      env:
+        AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+        AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+      run: |
+        # Définir les variables
+        FILE_SHARE_NAME="data"
+        FILE_PATH="i/docteller-lib-6.4.3.whl"
+        DESTINATION_PATH="./downloaded_package"
+
+        # Créer le répertoire de destination s'il n'existe pas
+        mkdir -p $DESTINATION_PATH
+
+        # Télécharger le fichier
+        az storage file download \
+          --account-name $AZURE_STORAGE_ACCOUNT \
+          --account-key $AZURE_STORAGE_KEY \
+          --share-name $FILE_SHARE_NAME \
+          --path $FILE_PATH \
+          --dest "$DESTINATION_PATH/docteller-lib-6.4.3.whl"
+
+    - name: Verify download
+      run: |
+        ls -l ./downloaded_package
+        echo "File downloaded successfully: $(ls ./downloaded_package)"
+
+    # Vous pouvez ajouter d'autres étapes ici pour utiliser le fichier téléchargé
