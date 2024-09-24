@@ -25,7 +25,7 @@ jobs:
       run: |
         # Définir les variables
         FILE_SHARE_NAME="data"
-        FILE_PATH="i/docteller-lib-*.whl"
+        FILE_PATH="i/docteller-lib-.whl"
         DESTINATION_PATH="./downloaded_package"
 
         # Afficher l'espace disque disponible
