@@ -48,8 +48,7 @@ jobs:
           --account-key $AZURE_STORAGE_KEY \
           --share-name $FILE_SHARE_NAME \
           --path $FILE_PATH \
-          --dest "$DESTINATION_PATH/" \
-          --recursive
+          --dest "$DESTINATION_PATH/"
 
         # Vérifier le résultat du téléchargement
         if [ $? -eq 0 ]; then
